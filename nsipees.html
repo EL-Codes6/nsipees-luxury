@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nsipees Luxury — Bespoke Elegance. Uncompromising Glamour.</title>
+<meta name="description" content="Nsipees Luxury — Bespoke Nigerian couture. Heavily embellished lace, structured Ankara, and hand-beaded statement pieces. Order via WhatsApp or email." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bone:#F7F5F0;
+    --bone-2:#EBE8E0;
+    --ink:#1A1816;
+    --ink-soft:#4A453E;
+    --muted:#8A8378;
+    --accent:#0E4B4F;
+    --gold:#B38B4D;
+    --line:rgba(26,24,22,0.14);
+    --max:1480px;
+    --pad:clamp(20px,4vw,64px);
+    --ease:cubic-bezier(0.22,1,0.36,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    font-family:'Jost',sans-serif;
+    background:var(--bone);
+    color:var(--ink);
+    font-weight:300;
+    line-height:1.6;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  body.no-scroll{overflow:hidden}
+  img{display:block;max-width:100%;height:auto}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer;background:none;border:none;color:inherit}
+  .serif{font-family:'Cormorant Garamond',serif}
+  .container{max-width:var(--max);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+  section[id]{scroll-margin-top:90px}
+  .eyebrow{font-size:11px;letter-spacing:0.26em;text-transform:uppercase;color:var(--muted);font-weight:400}
+  .display{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2.2rem,5vw,4.2rem);line-height:1.04;letter-spacing:-0.01em}
+
+  /* ---------- topbar ---------- */
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:1000}
+  .announce{
+    position:relative;height:52px;display:flex;align-items:center;justify-content:center;overflow:hidden;
+    background:var(--ink);color:var(--bone);
+    font-size:9px;letter-spacing:0.16em;text-transform:uppercase;
+    transition:height .45s var(--ease),opacity .3s var(--ease);
+    padding:0 var(--pad);text-align:center;
+  }
+  .announce .logo{position:absolute;left:var(--pad);top:50%;transform:translateY(-50%)}
+  .announce .logo img{width:48px;height:44px;object-fit:contain;transform:none}
+  .announce > span{width:calc(100% - 120px)}
+  .topbar.scrolled .announce{height:0;opacity:0}
+  .nav{background:transparent;border-bottom:1px solid transparent;transition:background .4s var(--ease),border-color .4s var(--ease)}
+  .nav__inner{display:flex;align-items:center;height:76px;gap:20px}
+  .nav__inner > *{display:flex;align-items:center}
+  .nav, .nav a, .nav button{color:var(--bone);transition:color .4s var(--ease)}
+  .topbar.scrolled .nav{background:rgba(247,245,240,0.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  .topbar.scrolled .nav, .topbar.scrolled .nav a, .topbar.scrolled .nav button{color:var(--ink)}
+
+  .logo{display:inline-flex;align-items:center;justify-content:center;line-height:1;flex-shrink:0}
+  .logo img{display:block;width:clamp(90px,7vw,130px);height:auto;object-fit:contain}
+  .logo__top{font-family:'Cormorant Garamond',serif;font-size:24px;letter-spacing:0.14em;font-weight:500}
+  .logo__bot{font-family:'Jost',sans-serif;font-size:8px;letter-spacing:0.55em;margin-top:5px;font-weight:400;opacity:.85}
+
+  .mobile-menu__head .logo{margin-right:auto}
+  .mobile-menu__head .logo img{width:100px}
+
+  .nav__links{display:flex;gap:38px;margin-left:auto;font-size:11px;letter-spacing:0.2em;text-transform:uppercase}
+  .nav__links a{position:relative;padding-bottom:2px}
+  .nav__links a::after{content:'';position:absolute;left:0;bottom:0;width:100%;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .4s var(--ease)}
+  .nav__links a:hover::after{transform:scaleX(1);transform-origin:left}
+
+  .nav__cart{display:inline-flex;align-items:center;gap:6px;margin-left:38px;font-size:11px;letter-spacing:0.2em;text-transform:uppercase}
+  
+  /* Bag Animation */
+  .cart-count{
+    display:inline-flex;align-items:center;justify-content:center;
+    min-width:18px;height:18px;padding:0 5px;border-radius:9px;
+    background:var(--gold);color:var(--bone);font-size:10px;letter-spacing:0;
+  }
+  @keyframes bump {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.6); background:var(--accent); }
+    100% { transform: scale(1); }
+  }
+  .cart-count.bump { animation: bump 0.3s ease; }
+
+  .nav__burger{display:none;flex-direction:column;justify-content:center;gap:6px;width:24px;height:24px}
+  .nav__burger span{display:block;width:22px;height:1.5px;background:currentColor;transition:transform .3s}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;background:#2a2622}
+  .hero__media{position:absolute;inset:0}
+  .hero__media img{width:100%;height:100%;object-fit:cover;object-position:top center;animation:heroZoom 18s var(--ease) forwards}
+  @keyframes heroZoom{from{transform:scale(1.09)}to{transform:scale(1)}}
+  .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(14,75,79,0.7) 0%,rgba(18,16,14,0.1) 50%,rgba(18,16,14,0.3) 100%)}
+  .hero__content{position:relative;z-index:2;width:100%;max-width:var(--max);margin:0 auto;padding:0 var(--pad) clamp(48px,9vh,110px);color:var(--bone)}
+  .hero__eyebrow{font-size:11px;letter-spacing:0.28em;text-transform:uppercase;opacity:.85;margin-bottom:20px}
+  .hero__title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2.6rem,6.4vw,6rem);line-height:1.02;letter-spacing:-0.01em}
+  .hero__title em{font-style:italic;color:#E8D5B5}
+  .hero__row{display:flex;flex-wrap:wrap;align-items:center;gap:28px;margin-top:36px}
+  .hero__link{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;border-bottom:1px solid currentColor;padding-bottom:4px;transition:opacity .3s}
+  .hero__link:hover{opacity:.6}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:17px 34px;border:1px solid var(--ink);color:var(--ink);background:transparent;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;font-weight:400;transition:all .45s var(--ease);text-align:center}
+  .btn:hover{background:var(--ink);color:var(--bone)}
+  .btn--light{border-color:var(--bone);color:var(--bone)}
+  .btn--light:hover{background:var(--bone);color:var(--ink)}
+  .btn--fill{background:var(--ink);color:var(--bone);border-color:var(--ink)}
+  .btn--fill:hover{background:var(--accent);border-color:var(--accent);color:var(--bone)}
+
+  /* ---------- reveal ---------- */
+  [data-reveal]{opacity:0;transform:translateY(28px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+  [data-reveal].in-view{opacity:1;transform:none}
+
+  /* ---------- manifesto ---------- */
+  .manifesto{padding:clamp(90px,14vh,170px) 0;text-align:center}
+  .manifesto__title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2.3rem,5.6vw,4.8rem);line-height:1.06;letter-spacing:-0.01em;margin-top:22px}
+  .manifesto__title em{font-style:italic;color:var(--gold)}
+  .manifesto__text{max-width:560px;margin:34px auto 0;color:var(--ink-soft);font-size:15px;line-height:1.85}
+
+  /* ---------- marquee ---------- */
+  .marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:24px 0;background:var(--bone)}
+  .marquee__track{display:flex;gap:44px;white-space:nowrap;width:max-content;animation:marquee 34s linear infinite;font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(1.4rem,3vw,2.3rem);letter-spacing:0.01em}
+  .marquee__track .dot{color:var(--gold);font-size:.7em;align-self:center}
+  @keyframes marquee{to{transform:translateX(-50%)}}
+
+  /* ---------- sections ---------- */
+  .section{padding:clamp(80px,12vh,150px) 0}
+  .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:clamp(32px,5vw,64px);flex-wrap:wrap}
+  .section-head .display{margin-top:14px}
+
+  /* ---------- featured ---------- */
+  .featured__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,3vw,42px);align-items:start}
+  .featured__grid .product:nth-child(2){margin-top:clamp(30px,6vw,90px)}
+
+  /* ---------- product ---------- */
+  .product{display:flex;flex-direction:column}
+  .product__media{position:relative;overflow:hidden;aspect-ratio:3/4;background:var(--bone-2);width:100%}
+  .product__media img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform 1.3s var(--ease),opacity .5s}
+  .product__media img.is-broken{opacity:0}
+  .product:hover .product__media img{transform:scale(1.05)}
+  
+  .product__info{margin-top:16px; display: flex; flex-direction: column; gap: 12px;}
+  .product__name{font-size:14px;font-weight:400;letter-spacing:0.03em;line-height:1.4}
+  .product__cat{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-top:-6px}
+  
+  .product__bottom{display: flex; justify-content: space-between; align-items: center; margin-top: 4px;}
+  .product__price{font-size:13px;color:var(--ink-soft); font-weight: 400;}
+  
+  /* THE NEW ADD TO BAG BUTTON */
+  .product__add {
+    font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+    background: transparent; border: 1px solid var(--ink); padding: 8px 14px;
+    transition: all 0.3s var(--ease); font-weight: 500;
+  }
+  .product__add:hover { background: var(--ink); color: var(--bone); }
+  .product__add:active { background: var(--accent); border-color: var(--accent); }
+
+  /* ---------- house ---------- */
+  .house{background:var(--bone-2)}
+  .house__grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:clamp(32px,6vw,100px);align-items:center}
+  .house__media{overflow:hidden;aspect-ratio:4/5;background:var(--bone)}
+  .house__media img{width:100%;height:100%;object-fit:cover;transition:transform 1.6s var(--ease)}
+  .house__media:hover img{transform:scale(1.04)}
+  .house__body h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2rem,4vw,3.4rem);line-height:1.08;margin:20px 0 30px}
+  .house__body p{color:var(--ink-soft);font-size:15px;line-height:1.85;margin-bottom:18px;max-width:46ch}
+  .link-arrow{display:inline-flex;align-items:center;gap:12px;margin-top:14px;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;border-bottom:1px solid currentColor;padding-bottom:6px;transition:gap .4s var(--ease)}
+  .link-arrow:hover{gap:20px}
+
+  /* ---------- shop ---------- */
+  .shop__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(28px,3vw,44px) clamp(14px,2vw,30px)}
+
+  /* ---------- newsletter ---------- */
+  .newsletter{background:var(--ink);color:var(--bone);text-align:center;padding:clamp(80px,12vh,140px) 0}
+  .newsletter h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2rem,4.4vw,3.6rem);line-height:1.06}
+  .newsletter p{color:rgba(247,245,240,0.72);font-size:14px;margin-top:16px;letter-spacing:0.02em}
+  .newsletter form{display:flex;max-width:500px;margin:36px auto 0;border-bottom:1px solid rgba(247,245,240,0.4);transition:border-color .3s}
+  .newsletter form:focus-within{border-color:var(--bone)}
+  .newsletter input{flex:1;background:none;border:none;outline:none;padding:16px 4px;font-family:'Jost',sans-serif;font-size:14px;color:var(--bone);letter-spacing:0.02em}
+  .newsletter input::placeholder{color:rgba(247,245,240,0.5)}
+  .newsletter button{padding:0 8px;font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:var(--bone);white-space:nowrap}
+
+  /* ---------- footer ---------- */
+  .footer{background:var(--ink);color:var(--bone);padding:clamp(60px,10vh,100px) 0 30px}
+  .footer__grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:clamp(32px,5vw,60px);padding-bottom:60px;border-bottom:1px solid rgba(247,245,240,0.14)}
+  .footer .logo__top{font-size:26px}
+  .footer__brand p{color:rgba(247,245,240,0.6);font-size:13px;margin-top:20px;max-width:30ch;line-height:1.7}
+  .footer__col h4{font-size:10px;letter-spacing:0.26em;text-transform:uppercase;font-weight:400;color:rgba(247,245,240,0.55);margin-bottom:20px}
+  .footer__col a{display:block;font-size:13.5px;color:rgba(247,245,240,0.9);margin-bottom:12px;transition:opacity .3s}
+  .footer__col a:hover{opacity:.55}
+  .footer__bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:30px;font-size:11px;letter-spacing:0.08em;color:rgba(247,245,240,0.5)}
+
+  /* ---------- mobile menu ---------- */
+  .mobile-menu{position:fixed;inset:0;z-index:1200;background:var(--bone);color:var(--ink);display:flex;flex-direction:column;padding:24px var(--pad) 40px;transform:translateY(-100%);transition:transform .6s var(--ease)}
+  .mobile-menu.open{transform:none}
+  .mobile-menu__head{display:flex;align-items:center;justify-content:space-between;padding-bottom:24px;border-bottom:1px solid var(--line)}
+  .mobile-menu .logo{color:var(--ink)}
+  .mobile-menu__close{font-size:28px;line-height:1;font-weight:300}
+  .mobile-menu__links{display:flex;flex-direction:column;gap:10px;margin-top:36px}
+  .mobile-menu__links a{
+    display:flex;align-items:center;justify-content:space-between;min-height:62px;
+    padding:12px 18px;border:1px solid var(--line);background:rgba(255,255,255,0.48);
+    font-size:14px;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;
+    transition:background .25s var(--ease),border-color .25s var(--ease),transform .25s var(--ease);
+  }
+  .mobile-menu__links a::after{content:'→';font-size:18px;color:var(--gold);transition:transform .25s var(--ease)}
+  .mobile-menu__links a:hover,.mobile-menu__links a:focus-visible{background:var(--bone-2);border-color:var(--gold)}
+  .mobile-menu__links a:hover::after,.mobile-menu__links a:focus-visible::after{transform:translateX(4px)}
+  .mobile-menu__foot{margin-top:auto;padding-top:40px;font-size:12px;letter-spacing:0.06em;color:var(--ink-soft)}
+  .mobile-menu__foot a{display:block;margin-bottom:8px}
+
+  /* ---------- cart ---------- */
+  .cart-overlay{position:fixed;inset:0;z-index:1300;background:rgba(20,18,16,0.5);opacity:0;pointer-events:none;transition:opacity .5s var(--ease)}
+  .cart-overlay.show{opacity:1;pointer-events:auto}
+  .cart{position:fixed;top:0;right:0;bottom:0;z-index:1400;width:min(440px,100%);background:var(--bone);display:flex;flex-direction:column;transform:translateX(100%);transition:transform .6s var(--ease)}
+  .cart.open{transform:none}
+  .cart__head{display:flex;align-items:center;justify-content:space-between;padding:26px var(--pad);border-bottom:1px solid var(--line)}
+  .cart__head h2{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:22px;letter-spacing:0.02em}
+  .cart__close{font-size:26px;line-height:1;font-weight:300}
+  .cart__items{flex:1;overflow-y:auto;padding:20px var(--pad)}
+  .cart__empty{color:var(--muted);font-size:14px;text-align:center;padding:60px 0}
+  
+  .cart-item{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+  .cart-item img{width:70px;height:92px;object-fit:cover;object-position:top center;background:var(--bone-2);flex-shrink:0}
+  .cart-item__name{font-size:13px;letter-spacing:0.02em; font-weight: 500;}
+  .cart-item__meta{font-size:12px;color:var(--muted);margin-top:4px}
+  
+  /* Plus / Minus Qty Controls */
+  .cart-item__actions { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; }
+  .qty-control { display: flex; align-items: center; border: 1px solid var(--line); border-radius: 2px; }
+  .qty-control button { padding: 4px 10px; font-size: 14px; transition: background 0.2s; }
+  .qty-control button:hover { background: var(--bone-2); }
+  .qty-control span { font-size: 12px; width: 24px; text-align: center; font-weight: 500;}
+  
+  .cart-item__remove{font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);border-bottom:1px solid var(--accent);padding-bottom:2px}
+
+  /* ---------- cart footer (order actions) ---------- */
+  .cart__foot{padding:22px var(--pad) 28px;border-top:1px solid var(--line)}
+  .cart__total{display:flex;justify-content:space-between;font-size:13px;letter-spacing:0.06em;margin-bottom:18px}
+  .cart__total span:last-child{font-weight:400}
+  .cart__actions{display:flex;flex-direction:column;gap:10px}
+  .cart__actions .btn{width:100%}
+  .cart__note{font-size:11px;color:var(--muted);text-align:center;margin-top:16px;letter-spacing:0.04em;line-height:1.6}
+  .cart__actions a[aria-disabled="true"]{pointer-events:none;opacity:0.35}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:1100px){ .shop__grid{grid-template-columns:repeat(3,1fr)} }
+  @media (max-width:900px){
+    .nav__inner{height:66px}
+    .nav__burger{display:flex;justify-self:start}
+    .nav__links{display:none}
+    .nav__cart{margin-left:auto;font-size:10px}
+    .logo__top{font-size:20px;letter-spacing:0.12em}
+    .logo__bot{font-size:7px;letter-spacing:0.5em}
+    .house__grid{grid-template-columns:1fr}
+    .house__body{order:2}
+    .footer__grid{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:800px){
+    .shop__grid{grid-template-columns:repeat(2,1fr)}
+    .featured__grid{grid-template-columns:1fr}
+    .featured__grid .product:nth-child(2){margin-top:0}
+    .section-head{flex-direction:column;align-items:flex-start;gap:10px}
+  }
+  @media (max-width:600px){
+    .announce{height:46px;font-size:8px;letter-spacing:0.1em}
+    .announce > span{width:calc(100% - 100px)}
+    .announce .logo img{width:40px;height:38px}
+      .footer__grid{grid-template-columns:1fr;gap:36px}
+    .footer__bottom{flex-direction:column;gap:8px}
+    .hero__row{gap:18px}
+    .hero__title{font-size:clamp(2.3rem,9vw,3.4rem)}
+    
+    /* Make add to bag button full width on small mobile for easier clicking */
+    .product__bottom { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .product__add { width: 100%; padding: 12px; font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar" id="topbar">
+  <div class="announce">
+    <a href="#" class="logo" aria-label="Nsipees Luxury home">
+      <img src="images/nsipees-logo.jpg" alt="Nsipees Luxury logo" loading="eager" />
+    </a>
+    <span>Bespoke orders via WhatsApp or email — Nationwide delivery</span>
+  </div>
+  <header class="nav">
+    <div class="container nav__inner">
+      <button class="nav__burger" data-menu-open aria-label="Open menu"><span></span><span></span></button>
+      <nav class="nav__links">
+        <a href="#shop">Shop</a>
+        <a href="#house">The Atelier</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="nav__cart" data-cart-open>Bag <span class="cart-count" data-cart-count>0</span></button>
+    </div>
+  </header>
+</div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" data-menu>
+  <div class="mobile-menu__head">
+    <a href="#" class="logo"><img src="images/nsipees-logo.jpg" alt="Nsipees Luxury logo" loading="eager" /></a>
+    <button class="mobile-menu__close" data-menu-close aria-label="Close menu">&times;</button>
+  </div>
+  <nav class="mobile-menu__links">
+    <a href="#shop" data-menu-close>Shop</a>
+    <a href="#house" data-menu-close>The Atelier</a>
+    <a href="#contact" data-menu-close>Contact</a>
+  </nav>
+  <div class="mobile-menu__foot">
+    <a href="mailto:orders@nsipeesluxury.com">orders@nsipeesluxury.com</a>
+    <p>Uyo, Nigeria — Shipping nationwide</p>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__media">
+    <img src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?auto=format&fit=crop&w=2000&q=80" alt="Nsipees Luxury Bespoke Couture" onerror="this.classList.add('is-broken')" />
+  </div>
+  <div class="hero__content">
+    <p class="hero__eyebrow">The Couture Collection — 2026</p>
+    <h1 class="hero__title">Bespoke elegance.<br /><em>Uncompromising glamour.</em></h1>
+    <div class="hero__row">
+      <a href="#shop" class="btn btn--light">Explore the Collection</a>
+      <a href="#house" class="hero__link">Discover the Atelier</a>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto">
+  <div class="container">
+    <p class="eyebrow" data-reveal>The House of Nsipees</p>
+    <h2 class="manifesto__title" data-reveal>Where intricate detail<br /><em>meets modern silhouette.</em></h2>
+    <p class="manifesto__text" data-reveal>
+      Nsipees Luxury is a celebration of African craftsmanship. Hand-beaded embellishments, structured lace, and custom Ankara cuts — designed in Uyo, made for the woman who commands the room.
+    </p>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span>Nsipees Luxury</span><span class="dot">·</span>
+    <span>Hand-Beaded</span><span class="dot">·</span>
+    <span>Bespoke Tailoring</span><span class="dot">·</span>
+    <span>Uyo to the World</span><span class="dot">·</span>
+    <span>Nsipees Luxury</span><span class="dot">·</span>
+    <span>Hand-Beaded</span><span class="dot">·</span>
+    <span>Bespoke Tailoring</span><span class="dot">·</span>
+    <span>Uyo to the World</span><span class="dot">·</span>
+  </div>
+</div>
+
+<!-- FEATURED -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow" data-reveal>Selected Pieces</p>
+        <h2 class="display" data-reveal>The Icons</h2>
+      </div>
+      <a href="#shop" class="link-arrow" data-reveal>View all</a>
+    </div>
+    <div class="featured__grid" id="featuredGrid"></div>
+  </div>
+</section>
+
+<!-- THE HOUSE -->
+<section class="section house" id="house">
+  <div class="container house__grid">
+    <div class="house__media" data-reveal>
+      <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=1200&q=80" alt="The Nsipees atelier" loading="lazy" onerror="this.classList.add('is-broken')" />
+    </div>
+    <div class="house__body">
+      <p class="eyebrow" data-reveal>The Atelier</p>
+      <h2 data-reveal>Tailored to perfection. Finished by hand.</h2>
+      <p data-reveal>Every Nsipees piece begins with a vision of confidence. We source premium lace, rich Ankara, and heavy crepe, transforming them into structural works of art.</p>
+      <p data-reveal>Produced in small runs in Uyo, each garment is heavily embellished with hand-sewn beads, gold accents, and intricate embroidery. This is not fast fashion; this is modern couture.</p>
+      <a href="#shop" class="link-arrow" data-reveal>Explore the collection</a>
+    </div>
+  </div>
+</section>
+
+<!-- SHOP -->
+<section class="section" id="shop">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow" data-reveal>The Collection</p>
+        <h2 class="display" data-reveal>Couture — 2026</h2>
+      </div>
+      <p class="eyebrow" data-reveal>8 pieces</p>
+    </div>
+    <div class="shop__grid" id="shopGrid"></div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <div class="container">
+    <h2 data-reveal>Join the inner circle.</h2>
+    <p data-reveal>Private viewings, bespoke trunk shows, and editorial notes.</p>
+    <form data-reveal onsubmit="event.preventDefault();this.reset();alert('Welcome to Nsipees Luxury.');">
+      <input type="email" placeholder="Email address" required aria-label="Email address" />
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="contact">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="#" class="logo"><img src="images/nsipees-logo.jpg" alt="Nsipees Luxury logo" loading="eager" /></a>
+        <p>Bespoke African couture. Heavy embellishments, structured tailoring, and uncompromising glamour. Designed in Uyo, Nigeria.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Explore</h4>
+        <a href="#shop">Shop</a>
+        <a href="#house">The Atelier</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer__col">
+        <h4>Client Care</h4>
+        <a href="#">Bespoke Fittings</a>
+        <a href="#">Shipping & Returns</a>
+        <a href="#">Size Guide</a>
+      </div>
+      <div class="footer__col">
+        <h4>Contact</h4>
+        <!-- UPDATE THESE LINKS WITH THE REAL WHATSAPP NUMBER & EMAIL -->
+        <a href="https://wa.me/2348012345678" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="mailto:orders@nsipeesluxury.com">orders@nsipeesluxury.com</a>
+        <a href="#">Instagram</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>&copy; 2026 Nsipees Luxury. All rights reserved.</span>
+      <span>Made with intention.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- CART -->
+<div class="cart-overlay" data-cart-overlay></div>
+<aside class="cart" data-cart aria-label="Shopping bag">
+  <div class="cart__head">
+    <h2>Bag (<span data-cart-count>0</span>)</h2>
+    <button class="cart__close" data-cart-close aria-label="Close bag">&times;</button>
+  </div>
+  <div class="cart__items" data-cart-items></div>
+  <div class="cart__foot">
+    <div class="cart__total"><span>Total</span><span data-cart-total>₦0</span></div>
+    <div class="cart__actions">
+      <a class="btn btn--fill" data-order-wa href="#" target="_blank" rel="noopener">Order via WhatsApp</a>
+      <a class="btn" data-order-em href="#">Order via Email</a>
+    </div>
+    <p class="cart__note">Your bag will be sent as a pre-filled message. We'll confirm measurements, availability, and payment from there.</p>
+  </div>
+</aside>
+<script>
+  /* =========================================================
+     ORDER CONFIG — edit these two values
+     ========================================================= */
+  const ORDER_CONFIG = {
+    whatsappNumber: '2348012345678', // international format, no +, no spaces
+    email: 'orders@nsipeesluxury.com',
+    brand: 'Nsipees Luxury'
+  };
+
+  /* ---------------- DATA ---------------- */
+  const PRODUCTS = [
+    { id:1, name:"Embellished Peplum Set",     price:50000, cat:"Couture",    img:"images/dress1.jpg" },
+    { id:2, name:"Structured Lace Gown",       price:48000, cat:"Gowns",      img:"images/dress2.jpg" },
+    { id:3, name:"Beaded Ankara Midi",         price:48000, cat:"Ankara",     img:"images/dress3.jpg" },
+    { id:4, name:"Off-Shoulder Lace Dress",    price:50000, cat:"Gowns",      img:"images/dress4.jpg" },
+    { id:5, name:"Sequined Statement Dress",   price:40000, cat:"Evening",    img:"images/dress5.jpg" },
+    { id:6, name:"Asymmetric Ankara Dress",    price:38000, cat:"Ankara",     img:"images/dress6.jpg" },
+    { id:7, name:"Corset Lace Gown",           price:36000, cat:"Couture",    img:"images/dress7.jpg" },
+    { id:8, name:"Embroidered Formal Set",     price:48000, cat:"Sets",       img:"images/dress8.jpg" }
+  ];
+  const FEATURED_IDS = [1, 2, 4];
+
+  const imgUrl = (src, w=1000) => src.startsWith('images/') ? src : `https://images.unsplash.com/${src}?auto=format&fit=crop&w=${w}&q=80`;
+  const fmt    = n => '₦' + n.toLocaleString('en-NG');
+
+  /* ---------------- RENDER ---------------- */
+  function cardHTML(p, i){
+    return `
+      <article class="product" data-reveal style="transition-delay:${(i%8)*0.06}s">
+        <div class="product__media">
+          <img src="${imgUrl(p.img, 900)}" alt="${p.name}" loading="lazy" onerror="this.classList.add('is-broken')" />
+        </div>
+        <div class="product__info">
+          <h3 class="product__name">${p.name}</h3>
+          <p class="product__cat">${p.cat}</p>
+          <div class="product__bottom">
+            <p class="product__price">${fmt(p.price)}</p>
+            <button class="product__add" data-add="${p.id}">Add to Bag +</button>
+          </div>
+        </div>
+      </article>`;
+  }
+
+  document.getElementById('featuredGrid').innerHTML =
+    FEATURED_IDS.map((id,i) => cardHTML(PRODUCTS.find(p=>p.id===id), i)).join('');
+
+  document.getElementById('shopGrid').innerHTML =
+    PRODUCTS.map((p,i) => cardHTML(p, i)).join('');
+
+  /* ---------------- REVEAL ---------------- */
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target); }
+    });
+  }, { threshold:0.12, rootMargin:'0px 0px -8% 0px' });
+  document.querySelectorAll('[data-reveal]').forEach(el=>io.observe(el));
+
+  /* ---------------- TOPBAR SCROLL ---------------- */
+  const topbar = document.getElementById('topbar');
+  const onScroll = () => topbar.classList.toggle('scrolled', window.scrollY > 40);
+  window.addEventListener('scroll', onScroll, { passive:true });
+  onScroll();
+
+  /* ---------------- MOBILE MENU ---------------- */
+  const menu = document.querySelector('[data-menu]');
+  const openMenu = () => { menu.classList.add('open'); document.body.classList.add('no-scroll'); };
+  const closeMenu = () => { menu.classList.remove('open'); document.body.classList.remove('no-scroll'); };
+  document.querySelector('[data-menu-open]').addEventListener('click', openMenu);
+  document.querySelectorAll('[data-menu-close]').forEach(b=>b.addEventListener('click', closeMenu));
+
+  /* ---------------- CART ---------------- */
+  const cartEl   = document.querySelector('[data-cart]');
+  const overlay  = document.querySelector('[data-cart-overlay]');
+  const itemsEl  = document.querySelector('[data-cart-items]');
+  const totalEl  = document.querySelector('[data-cart-total]');
+  const countEls = document.querySelectorAll('[data-cart-count]');
+  const waBtn    = document.querySelector('[data-order-wa]');
+  const emBtn    = document.querySelector('[data-order-em]');
+  let cart = [];
+
+  const openCart  = () => { cartEl.classList.add('open'); overlay.classList.add('show'); document.body.classList.add('no-scroll'); };
+  const closeCart = () => { cartEl.classList.remove('open'); overlay.classList.remove('show'); document.body.classList.remove('no-scroll'); };
+
+  /* Build the pre-filled order message (plain text) */
+  function buildOrderMessage(){
+    const lines = [
+      `Hello ${ORDER_CONFIG.brand},`,
+      ``,
+      `I'd like to place an order:`,
+      ``
+    ];
+    cart.forEach((x,i)=>{
+      lines.push(`${i+1}. ${x.name} — ${fmt(x.price)} × ${x.qty} = ${fmt(x.price * x.qty)}`);
+    });
+    const total = cart.reduce((s,x)=>s + x.price*x.qty, 0);
+    lines.push(
+      ``,
+      `Total: ${fmt(total)}`,
+      ``,
+      `Please confirm availability, delivery, and payment details.`,
+      ``,
+      `Name:`,
+      `Delivery address:`,
+      `Preferred payment:`
+    );
+    return lines.join('\n');
+  }
+
+  /* Wire the order buttons to the current cart */
+  function updateOrderLinks(){
+    const hasItems = cart.length > 0;
+    const msg = encodeURIComponent(buildOrderMessage());
+
+    waBtn.href = `https://wa.me/${ORDER_CONFIG.whatsappNumber}?text=${msg}`;
+    emBtn.href = `mailto:${ORDER_CONFIG.email}?subject=${encodeURIComponent('New Order — ' + ORDER_CONFIG.brand)}&body=${msg}`;
+
+    [waBtn, emBtn].forEach(b=>{
+      b.setAttribute('aria-disabled', hasItems ? 'false' : 'true');
+    });
+  }
+
+  function renderCart(){
+    const qty   = cart.reduce((s,x)=>s+x.qty, 0);
+    const total = cart.reduce((s,x)=>s+x.price*x.qty, 0);
+    
+    // Update all bag count text
+    countEls.forEach(el=>el.textContent = qty);
+    totalEl.textContent = fmt(total);
+
+    if(!cart.length){
+      itemsEl.innerHTML = '<p class="cart__empty">Your bag is empty.</p>';
+      updateOrderLinks();
+      return;
+    }
+    
+    // Render items with +/- buttons
+    itemsEl.innerHTML = cart.map(x=>`
+      <div class="cart-item">
+        <img src="${imgUrl(x.img, 200)}" alt="${x.name}" onerror="this.style.opacity=0" />
+        <div class="cart-item__body" style="flex:1">
+          <p class="cart-item__name">${x.name}</p>
+          <p class="cart-item__meta">${fmt(x.price)}</p>
+          <div class="cart-item__actions">
+            <div class="qty-control">
+              <button data-decrease="${x.id}">-</button>
+              <span>${x.qty}</span>
+              <button data-increase="${x.id}">+</button>
+            </div>
+            <button class="cart-item__remove" data-remove="${x.id}">Remove</button>
+          </div>
+        </div>
+      </div>`).join('');
+
+    updateOrderLinks();
+  }
+
+  // Adds an item and triggers the pop animation
+  function addToCart(id){
+    const p = PRODUCTS.find(x=>x.id===id);
+    const existing = cart.find(x=>x.id===id);
+    if(existing) {
+      existing.qty++;
+    } else {
+      cart.push({ ...p, qty:1 });
+    }
+    
+    renderCart();
+    openCart(); // Open bag so they see it
+    
+    // Animate the bag counter
+    countEls.forEach(el => {
+      el.classList.remove('bump');
+      void el.offsetWidth; // Trigger reflow to restart animation
+      el.classList.add('bump');
+    });
+  }
+
+  function removeFromCart(id){
+    cart = cart.filter(x=>x.id!==id);
+    renderCart();
+  }
+
+  function updateQty(id, delta) {
+    const item = cart.find(x=>x.id===id);
+    if(!item) return;
+    item.qty += delta;
+    if(item.qty <= 0) {
+      removeFromCart(id);
+    } else {
+      renderCart();
+    }
+  }
+
+  document.addEventListener('click', (e)=>{
+    // Add to bag
+    const addBtn = e.target.closest('[data-add]');
+    if(addBtn){ addToCart(parseInt(addBtn.dataset.add, 10)); return; }
+    
+    // Increase / Decrease Qty
+    const incBtn = e.target.closest('[data-increase]');
+    if(incBtn){ updateQty(parseInt(incBtn.dataset.increase, 10), 1); return; }
+    
+    const decBtn = e.target.closest('[data-decrease]');
+    if(decBtn){ updateQty(parseInt(decBtn.dataset.decrease, 10), -1); return; }
+    
+    // Remove item
+    const remBtn = e.target.closest('[data-remove]');
+    if(remBtn){ removeFromCart(parseInt(remBtn.dataset.remove, 10)); return; }
+    
+    // Toggle Cart UI
+    if(e.target.closest('[data-cart-open]')){ openCart(); return; }
+    if(e.target.closest('[data-cart-close]') || e.target === overlay){ closeCart(); }
+  });
+
+  document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape'){ closeCart(); closeMenu(); } });
+
+  renderCart();
+</script>
+</body>
+</html>
