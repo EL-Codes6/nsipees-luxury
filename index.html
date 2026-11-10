@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nsipees Luxury — Bespoke Elegance. Uncompromising Glamour.</title>
+<meta name="description" content="Nsipees Luxury — Bespoke Nigerian couture. Heavily embellished lace, structured Ankara, and hand-beaded statement pieces. Order via WhatsApp or email." />
+<link rel="icon" type="image/jpeg" href="images/nsipees-logo.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+<script src="script.js" defer></script>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar" id="topbar">
+  <div class="announce">
+    <a href="#" class="logo" aria-label="Nsipees Luxury home">
+      <img src="images/nsipees-logo.jpg" alt="Nsipees Luxury logo" loading="eager" />
+    </a>
+    <span>Bespoke orders via WhatsApp or email — Nationwide delivery</span>
+  </div>
+  <header class="nav">
+    <div class="container nav__inner">
+      <button class="nav__burger" data-menu-open aria-label="Open menu"><span></span><span></span></button>
+      <nav class="nav__links">
+        <a href="#shop">Shop</a>
+        <a href="#house">The Atelier</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="nav__cart" data-cart-open>Bag <span class="cart-count" data-cart-count>0</span></button>
+    </div>
+  </header>
+</div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" data-menu>
+  <div class="mobile-menu__head">
+    <a href="#" class="logo"><img src="images/nsipees-logo.jpg" alt="Nsipees Luxury logo" loading="eager" /></a>
+    <button class="mobile-menu__close" data-menu-close aria-label="Close menu">&times;</button>
+  </div>
+  <nav class="mobile-menu__links">
+    <a href="#shop" data-menu-close>Shop</a>
+    <a href="#house" data-menu-close>The Atelier</a>
+    <a href="#contact" data-menu-close>Contact</a>
+  </nav>
+  <div class="mobile-menu__foot">
+    <a href="mailto:orders@nsipeesluxury.com">orders@nsipeesluxury.com</a>
+    <p>Uyo, Nigeria — Shipping nationwide</p>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__media">
+    <img src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?auto=format&fit=crop&w=2000&q=80" alt="Nsipees Luxury Bespoke Couture" onerror="this.classList.add('is-broken')" />
+  </div>
+  <div class="hero__content">
+    <p class="hero__eyebrow">The Couture Collection — 2026</p>
+    <h1 class="hero__title">Bespoke elegance.<br /><em>Uncompromising glamour.</em></h1>
+    <div class="hero__row">
+      <a href="#shop" class="btn btn--light">Explore the Collection</a>
+      <a href="#house" class="hero__link">Discover the Atelier</a>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto">
+  <div class="container">
+    <p class="eyebrow" data-reveal>The House of Nsipees</p>
+    <h2 class="manifesto__title" data-reveal>Where intricate detail<br /><em>meets modern silhouette.</em></h2>
+    <p class="manifesto__text" data-reveal>
+      Nsipees Luxury is a celebration of African craftsmanship. Hand-beaded embellishments, structured lace, and custom Ankara cuts — designed in Uyo, made for the woman who commands the room.
+    </p>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span>Nsipees Luxury</span><span class="dot">·</span>
+    <span>Hand-Beaded</span><span class="dot">·</span>
+    <span>Bespoke Tailoring</span><span class="dot">·</span>
+    <span>Uyo to the World</span><span class="dot">·</span>
+    <span>Nsipees Luxury</span><span class="dot">·</span>
+    <span>Hand-Beaded</span><span class="dot">·</span>
+    <span>Bespoke Tailoring</span><span class="dot">·</span>
+    <span>Uyo to the World</span><span class="dot">·</span>
+  </div>
+</div>
+
+<!-- FEATURED -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow" data-reveal>Selected Pieces</p>
+        <h2 class="display" data-reveal>The Icons</h2>
+      </div>
+      <a href="#shop" class="link-arrow" data-reveal>View all</a>
+    </div>
+    <div class="featured__grid" id="featuredGrid"></div>
+  </div>
+</section>
+
+<!-- THE HOUSE -->
+<section class="section house" id="house">
+  <div class="container house__grid">
+    <div class="house__media" data-reveal>
+      <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=1200&q=80" alt="The Nsipees atelier" loading="lazy" onerror="this.classList.add('is-broken')" />
+    </div>
+    <div class="house__body">
+      <p class="eyebrow" data-reveal>The Atelier</p>
+      <h2 data-reveal>Tailored to perfection. Finished by hand.</h2>
+      <p data-reveal>Every Nsipees piece begins with a vision of confidence. We source premium lace, rich Ankara, and heavy crepe, transforming them into structural works of art.</p>
+      <p data-reveal>Produced in small runs in Uyo, each garment is heavily embellished with hand-sewn beads, gold accents, and intricate embroidery. This is not fast fashion; this is modern couture.</p>
+      <a href="#shop" class="link-arrow" data-reveal>Explore the collection</a>
+    </div>
+  </div>
+</section>
+
+<!-- SHOP -->
+<section class="section" id="shop">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow" data-reveal>The Collection</p>
+        <h2 class="display" data-reveal>Couture — 2026</h2>
+      </div>
+      <p class="eyebrow" data-reveal>8 pieces</p>
+    </div>
+    <div class="shop__grid" id="shopGrid"></div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <div class="container">
+    <h2 data-reveal>Join the inner circle.</h2>
+    <p data-reveal>Private viewings, bespoke trunk shows, and editorial notes.</p>
+    <form data-reveal onsubmit="event.preventDefault();this.reset();alert('Welcome to Nsipees Luxury.');">
+      <input type="email" placeholder="Email address" required aria-label="Email address" />
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="contact">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="#" class="logo"><img src="images/nsipees-logo.jpg" alt="Nsipees Luxury logo" loading="eager" /></a>
+        <p>Bespoke African couture. Heavy embellishments, structured tailoring, and uncompromising glamour. Designed in Uyo, Nigeria.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Explore</h4>
+        <a href="#shop">Shop</a>
+        <a href="#house">The Atelier</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer__col">
+        <h4>Client Care</h4>
+        <a href="#">Bespoke Fittings</a>
+        <a href="#">Shipping & Returns</a>
+        <a href="#">Size Guide</a>
+      </div>
+      <div class="footer__col">
+        <h4>Contact</h4>
+        <!-- UPDATE THESE LINKS WITH THE REAL WHATSAPP NUMBER & EMAIL -->
+        <a href="https://wa.me/2348012345678" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="mailto:orders@nsipeesluxury.com">orders@nsipeesluxury.com</a>
+        <a href="#">Instagram</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>&copy; 2026 Nsipees Luxury. All rights reserved.</span>
+      <span>Made with intention.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- CART -->
+<div class="cart-overlay" data-cart-overlay></div>
+<aside class="cart" data-cart aria-label="Shopping bag">
+  <div class="cart__head">
+    <h2>Bag (<span data-cart-count>0</span>)</h2>
+    <button class="cart__close" data-cart-close aria-label="Close bag">&times;</button>
+  </div>
+  <div class="cart__items" data-cart-items></div>
+  <div class="cart__foot">
+    <div class="cart__total"><span>Total</span><span data-cart-total>₦0</span></div>
+    <div class="cart__actions">
+      <a class="btn btn--fill" data-order-wa href="#" target="_blank" rel="noopener">Order via WhatsApp</a>
+      <a class="btn" data-order-em href="#">Order via Email</a>
+    </div>
+    <p class="cart__note">Your bag will be sent as a pre-filled message. We'll confirm measurements, availability, and payment from there.</p>
+  </div>
+</aside>
+
+</body>
+</html>
